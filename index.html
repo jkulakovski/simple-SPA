@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>av.by</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<header class="compact">
+    <h2 class="tzine"><a href="admin.html">admin</a></h2>
+
+    <h1><a href="#">AV.by</a></h1>
+</header>
+<div class="main-content">
+    <form class="search-form">
+        <p><input type="search" placeholder="Search cars">
+            <input type="submit" class="search" value="Search"></p>
+    </form><br>
+    <div class="search-car page">
+
+        <div class="overlay"></div>
+
+        <div class="search-large">
+            <div class="filters">
+                <form>
+
+                    <div class="filter-criteria">
+                        <span>Manufacturer</span>
+                        <label><input type="checkbox" name="manufacturer" value="volkswagen">Volkswagen</label>
+                        <label><input type="checkbox" name="manufacturer" value="bmw">BMW</label>
+                        <label><input type="checkbox" name="manufacturer" value="mercedes-benz">Mercedes-Benz</label>
+                        <label><input type="checkbox" name="manufacturer" value="audi">Audi</label>
+                        <label><input type="checkbox" name="manufacturer" value="volvo">Volvo</label>
+                    </div>
+
+                </form>
+
+            </div>
+            <ul class="cars-list">
+                <script id="some-template" type="x-handlebars-template">​
+                {{#each this}}
+                <li data-index="{{id}}">
+                    <a href="#" class="car-photo"><img src="{{image}}" height="130" alt="{{name}}"/></a>
+
+                    <h2>{{name}}</h2>
+                    <ul class="car-description">
+                        <li><span>Manufacturer: </span>{{manufacturer}}</li>
+                        <li><span>Yaer: </span>{{year}}</li>
+                        <li><span>Mileage: </span>{{mileage}} km</li>
+                    </ul>
+                    <p class="car-price">{{priceDollar}}$
+
+                    <div class="highlight"></div>
+                </li>
+                {{/each}}
+                </script>
+                 
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="all-cars page">
+
+        <ul class="cars-list">
+            <script id="cars-template" type="x-handlebars-template">​
+            {{#each this}}
+            <li data-index="{{id}}">
+                <a href="#" class="car-photo"><img src="{{image}}" height="130" alt="{{name}}"/></a>
+
+                <h2><a href="#"> {{name}} </a></h2>
+                <ul class="car-description">
+                    <li><span>Manufacturer: </span>{{manufacturer}}</li>
+                    <li><span>Yaer: </span>{{year}}</li>
+                    <li><span>Mileage: </span>{{mileage}} km</li>
+                </ul>
+                <button>Top!</button>
+                <p class="car-price">{{priceDollar}}$
+
+                <div class="highlight"></div>
+            </li>
+            {{/each}}
+            </script>
+             
+        </ul>
+
+    </div>
+
+
+    <div class="single-car page">
+
+        <div class="overlay"></div>
+
+        <div class="preview-large">
+            <h3></h3>
+            <img src=""/>
+            Manufacturer:<p class="manufacturer"></p><br>
+            Year:<p class="year"></p><br>
+            Mileage:<p class="mileage"></p>km<br>
+            Fuel:<p class="fuel"></p><br>
+            Capacity:<p class="capacity"></p>sm<sup>3</sup><br>
+            Transmission:<p class="transmission"></p><br>
+
+            <p class="price"></p>$
+            <p class="priceBYN"></p>BYN
+            <p class="priceEUR"></p>€
+            <span class="close">×</span>
+        </div>
+
+    </div>
+
+
+    <div class="error page">
+        <h3>Sorry, something went wrong :(</h3>
+    </div>
+
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>

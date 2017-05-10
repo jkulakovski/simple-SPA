@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+<header class="compact">
+    <h2 class="tzine"><a>create</a></h2>
+
+    <h1><a href="index.html">AV.by</a></h1>
+</header>
+<table class="features-table-naim" id="rez_tablh">
+    <tr>
+        <th id="thnaim"><input type="text" placeholder="Search..."></th>
+    </tr>
+</table>
+<table class="features-table-th">
+    <thead>
+    <th width="115">Image</th>
+    <th width="135">Name</th>
+    <th>Year</th>
+    <th width="120">Mileage</th>
+    <th width="50">Fuel</th>
+    <th width="90">Capacity</th>
+    <th>Transmission</th>
+    <th>Price</th>
+    <th width="80">Rating</th>
+    </thead>
+</table>
+<div class="main-content-table">
+
+    <div>
+
+        <script id="table-template" type="x-handlebars-template">
+            <table class="features-table">
+                <tbody>
+                {{#each this}}
+                <tr data-index="{{id}}">
+                    <td href="#" class="car-photo"><img src="{{image}}" height="130" alt="{{name}}"></td>
+                    <td class="naim">{{name}}</td>
+                    <td class="naim">{{year}}</td>
+                    <td>{{mileage}}km</td>
+                    <td>{{fuel}}</td>
+                    <td>{{capacity}}sm<sup>3</sup></td>
+                    <td>{{transmission}}</td>
+                    <td>{{priceDollar}}$</td>
+                    <td>{{rating}}</td>
+                    <td>
+                        <button class="edit" data-index="{{id}}">Edit</button>
+                        <button class="remove">Remove</button>
+                    </td>
+
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </script>
+
+    </div>
+
+    <div class="create-car page">
+
+        <div class="overlay"></div>
+
+        <div class="preview-large">
+
+
+            <h3>Addendum</h3>
+
+            <form class="form-style">
+
+                <label for="mark">Choose the manufacturer:</label>
+                <select id="mark" name="mark">
+                    <option value="">--</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Volvo">Volvo</option>
+                </select><br>
+                <label for="series">Choose a model of the machine:</label>
+                <select id="series" name="series">
+                    <option value="">--</option>
+                    <option value="Volkswagen Golf" class="Volkswagen">Volkswagen Golf</option>
+                    <option value="Volkswagen Passat" class="Volkswagen">Volkswagen Passat</option>
+                    <option value="Volkswagen Polo" class="Volkswagen">Volkswagen Polo</option>
+                    <option value="BMW X4" class="BMW">BMW X4</option>
+                    <option value="BMW X5" class="BMW">BMW X5</option>
+                    <option value="BMW X6" class="BMW">BMW X6</option>
+                    <option value="Mercedes-Benz S-Klasse" class="Mercedes-Benz">Mercedes-Benz S-Klasse</option>
+                    <option value="Mercedes-Benz A-Klasse" class="Mercedes-Benz">Mercedes-Benz A-Klasse</option>
+                    <option value="Mercedes-Benz M-Klasse" class="Mercedes-Benz">Mercedes-Benz M-Klasse</option>
+                    <option value="Audi A4" class="Audi">Audi A4</option>
+                    <option value="Audi A6" class="Audi">Audi A6</option>
+                    <option value="Audi A8" class="Audi">Audi A8</option>
+                    <option value="Volvo S40" class="Volvo">Volvo S40</option>
+                    <option value="Volvo S60" class="Volvo">Volvo S60</option>
+                    <option value="Volvo XC90" class="Volvo">Volvo XC90</option>
+                </select><br>
+
+                <p>
+                    <label for="mileage">Enter the mileage:</label>
+                    <input id="mileage" name="value">
+                </p><br>
+
+                <label>Choose the type of fuel:</label>
+
+                <p><input type="radio" name="radio-1" class="fuel" id="diesel" value="diesel">Diesel</p>
+
+                <p><input type="radio" name="radio-1" class="fuel" id="petrol" value="petrol">Petrol</p>
+
+                <p><input type="radio" name="radio-1" class="fuel" id="electro" value="electro">Electro</p>
+
+                <p>
+                    <label for="capacity">Enter the capacity:</label>
+                    <input id="capacity" name="value">
+                </p><br>
+
+                <label>Choose the transmission:</label>
+
+                <p><input type="radio" name="radio-2" id="automatic" value="automatic">Automatic</p>
+
+                <p><input type="radio" name="radio-2" id="mechanics" value="mechanics">Mechanics</p>
+
+                <p>
+                    <label for="year">Enter the year:</label>
+                    <input id="year" name="value">
+                </p><br>
+
+                <p>
+                    <label for="price">Enter the price:</label>
+                    <input id="price" name="value">
+                </p><br>
+
+                <p>
+                    <label for="rating">Enter the rating:</label>
+                    <input id="rating" name="value">
+                </p><br><br>
+
+                <p><input type="file" id="image" multiple accept="image/*,image/jpeg"></p><br><br>
+
+                <input class="submit" type="submit" value="Add">
+                <input class="cancel" type="button" value="Cancel">
+            </form>
+            <span class="close">×</span>
+        </div>
+
+    </div>
+
+    <div class="single-car page">
+
+        <div class="overlay"></div>
+
+        <div class="preview-large">
+
+            <span class="close">×</span>
+        </div>
+
+    </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-chained/1.0.1/jquery.chained.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+<script src="assets/js/admin.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        $("#series").chained("#mark");
+        var spinner = $("#mileage, #capacity,#price, #rating, #year").spinner();
+
+    });
+</script>
+</body>
+</html>
